@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import SignUp from "./components/Signup";
 import Home from "./pages/Home";
+import AddPost from "./components/AddPost";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home></Home>,
       },
+      {
+        path: "/addpost",
+        element: <AddPost></AddPost>
+      }
     ],
   },
 ]);
