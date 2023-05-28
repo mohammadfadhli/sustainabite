@@ -12,8 +12,8 @@ function IsLoggedIn(props) {
                         className="btn btn-primary-outline menu"
                         type="button"
                         data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasExample"
-                        aria-controls="offcanvasExample"
+                        data-bs-target="#offcanvasMenu"
+                        aria-controls="offcanvasMenu"
                     >
                         {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
                         <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@ function IsLoggedIn(props) {
             <div
                 className="offcanvas offcanvas-start text-bg-light"
                 tabIndex="-1"
-                id="offcanvasExample"
+                id="offcanvasMenu"
                 aria-labelledby="name_user_logged_in"
             >
                 <div className="offcanvas-header">
@@ -75,8 +75,8 @@ function IsLoggedOut() {
                         className="btn btn-primary-outline menu"
                         type="button"
                         data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasExample"
-                        aria-controls="offcanvasExample"
+                        data-bs-target="#offcanvasMenu"
+                        aria-controls="offcanvasMenu"
                     >
                         {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
                         <span class="navbar-toggler-icon"></span>
@@ -97,7 +97,7 @@ function IsLoggedOut() {
             <div
                 className="offcanvas offcanvas-start text-bg-light"
                 tabIndex="-1"
-                id="offcanvasExample"
+                id="offcanvasMenu"
                 aria-labelledby="name_user_logged_in"
             >
                 <div className="offcanvas-header">
