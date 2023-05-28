@@ -5,7 +5,7 @@ import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import placeholderimage from "../assets/placeholder-image.png";
 import { useNavigate } from "react-router";
-import axios from 'axios';
+import axios from "axios";
 
 function AddPost() {
   const [itemname, setItemName] = useState("");
@@ -70,25 +70,44 @@ function AddPost() {
         });
       });
 
-        // await uploadBytes(ref(storage, "users/" + currentUser.uid), profilePic)
-        //     .then(async (snapshot) => {
-        //         console.log("Uploaded a blob or file!");
+    // await uploadBytes(ref(storage, "users/" + currentUser.uid), profilePic)
+    //     .then(async (snapshot) => {
+    //         console.log("Uploaded a blob or file!");
 
-        //         return getDownloadURL(snapshot.ref);
-        //     })
-        //     .then(async (downloadURL) => {
-        //         await addDoc(collection(db, `posts`), {
-        //             itemphoto: downloadURL,
-        //             itemname: itemname,
-        //             desc: desc,
-        //             category: category,
-        //             expirydate: expirydate,
-        //             owner: currentUser.uid,
-        //         });
-        //     });
+    //         return getDownloadURL(snapshot.ref);
+    //     })
+    //     .then(async (downloadURL) => {
+    //         await addDoc(collection(db, `posts`), {
+    //             itemphoto: downloadURL,
+    //             itemname: itemname,
+    //             desc: desc,
+    //             category: category,
+    //             expirydate: expirydate,
+    //             owner: currentUser.uid,
+    //         });
+    //     });
 
-        navigate("/posts");
-    }
+    navigate("/posts");
+
+    axios
+      .post(
+        "https://api.telegram.org/bot" +
+          import.meta.env.VITE_TELEGRAM_BOT_ID +
+          "/sendMessage?chat_id=" +
+          import.meta.env.VITE_TELEGRAM_CHAT_ID +
+          "&text=" +
+          "Someone just added " +
+          itemname +
+          "! :)",
+        {}
+      )
+      .then(function (response) {
+        console.log("alerted group!" + response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <>
