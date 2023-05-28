@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-*">
+      <nav className="navbar navbar-expand-lg bg-*" style={{zIndex: "10"}}>
         <div className="container-fluid">
           <button
             className="btn btn-primary-outline menu"
@@ -14,7 +14,7 @@ const NavBar = () => {
             aria-controls="offcanvasExample"
           >
             {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           <button type="button" id="logout_btn" className="btn bai">

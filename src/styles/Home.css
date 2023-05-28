@@ -1,0 +1,14 @@
+#header {
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* background-image: url("../assets/food_bg.jpg"); */
+    /* background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    background: url("../assets/food_bg.jpg");
+    background-size: cover;
+}
