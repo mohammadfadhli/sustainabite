@@ -2,8 +2,9 @@ import "./App.css";
 import { AuthProvider } from "./auth";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
-import NavBar from "./components/navbar";
+import NavBar from "./components/NavBar";
 import SignUp from "./components/Signup";
+import AddPost from "./components/AddPost";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/addpost",
+        element: <AddPost></AddPost>
       },
     ]
   },
