@@ -7,6 +7,8 @@ import SignUp from "./components/Signup";
 import Home from "./pages/Home";
 import AddPost from "./components/AddPost";
 import Posts from "./pages/Posts";
+import ProtectedRoutes from "./routes/protectedroutes"
+import AnonymousRoute from "./routes/anonymousroute"
 
 const router = createBrowserRouter([
   {
@@ -14,27 +16,60 @@ const router = createBrowserRouter([
     element: <NavBar></NavBar>,
     children: [
       {
-        path: "/login",
-        element: <Login></Login>,
+          element: <ProtectedRoutes></ProtectedRoutes>, // pages that require authentication goes here
+          children: [
+              {
+                  path: "addpost",
+                  element: <AddPost></AddPost>,
+              },
+          ],
       },
       {
-        path: "/signup",
-        element: <SignUp></SignUp>,
+          element: <AnonymousRoute></AnonymousRoute>, // pages that require non authentication goes here
+          children: [
+              {
+                  path: "login",
+                  element: <Login></Login>,
+              },
+              {
+                  path: "signup",
+                  element: <SignUp></SignUp>,
+              },
+          ],
+      },
+      // pages that require neither goes here
+      {
+          index: true,
+          element: <Home></Home>,
       },
       {
-        // path: "/home",
-        index: true,
-        element: <Home></Home>,
+          path: "*",
+          element: <Posts></Posts> // show 404 error page if path doesn't exist
       },
-      {
-        path: "/addpost",
-        element: <AddPost></AddPost>
-      },
-      {
-        path: "/posts",
-        element: <Posts></Posts>
-      }
-    ],
+  ],
+    // children: [
+    //   {
+    //     path: "/login",
+    //     element: <Login></Login>,
+    //   },
+    //   {
+    //     path: "/signup",
+    //     element: <SignUp></SignUp>,
+    //   },
+    //   {
+    //     // path: "/home",
+    //     index: true,
+    //     element: <Home></Home>,
+    //   },
+    //   {
+    //     path: "/addpost",
+    //     element: <AddPost></AddPost>
+    //   },
+    //   {
+    //     path: "/posts",
+    //     element: <Posts></Posts>
+    //   }
+    // ],
   },
 ]);
 

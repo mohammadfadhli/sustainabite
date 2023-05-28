@@ -6,7 +6,7 @@ function PostCard(props) {
                 <div class="card-body">
                     <h5 class="card-title">{props.itemname}</h5>
                     <p class="card-text">{props.desc}</p>
-                    <p class="card-text">{props.expirydate}</p>
+                    <p class="card-text">Expiry: {props.expirydate}</p>
                     <span class="badge text-bg-primary">{props.category}</span>
                 </div>
             </div>

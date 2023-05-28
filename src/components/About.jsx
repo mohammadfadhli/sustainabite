@@ -2,7 +2,6 @@ import React from "react";
 import food_bg from "../assets/food_bg.jpg";
 import community_bg from "../assets/community_bg.jpg";
 import eat_tgt_bg from "../assets/eat_tgt.jpg";
-import "../styles/Home.css";
 
 const About = () => {
   return (
