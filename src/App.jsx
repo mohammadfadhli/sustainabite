@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import SignUp from "./components/Signup";
 import Home from "./pages/Home";
 import AddPost from "./components/AddPost";
+import Posts from "./pages/Posts";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/addpost",
         element: <AddPost></AddPost>
+      },
+      {
+        path: "/posts",
+        element: <Posts></Posts>
       }
     ],
   },

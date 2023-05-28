@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import db, { storage } from "../firebase";
 import { AuthContext } from "../auth";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import placeholderimage from "../assets/placeholder-image.png"
+import placeholderimage from "../assets/placeholder-image.png";
+import { useNavigate } from "react-router";
 
 function AddPost() {
     const [itemname, setItemName] = useState("");
@@ -16,6 +17,7 @@ function AddPost() {
     const [profilePicUrl, setProfilePicUrl] = useState(placeholderimage);
     const [isLoading, setIsLoading] = useState(true);
     const { currentUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     function addPost(e) {
         e.preventDefault();
@@ -47,21 +49,46 @@ function AddPost() {
     async function addPost(e) {
         e.preventDefault();
 
-        await uploadBytes(ref(storage, "users/" + currentUser.uid), profilePic)
-            .then(async (snapshot) => {
-                console.log("Uploaded a blob or file!");
+        const docRef = await addDoc(collection(db, "posts"), {
+            itemname: itemname,
+            desc: desc,
+            category: category,
+            expirydate: expirydate,
+            owner: currentUser.uid,
+        });
 
-                return getDownloadURL(snapshot.ref);
-            })
-            .then(async (downloadURL) => {
-                await addDoc(collection(db, `posts/${currentUser.uid}/posts`), {
-                    itemphoto: downloadURL,
-                    itemname: itemname,
-                    desc: desc,
-                    category: category,
-                    expirydate: expirydate,
-                });
+        await uploadBytes(
+            ref(storage, "itemphotos/" + docRef.id),
+            profilePic
+        ).then(async (snapshot) => {
+            console.log("Uploaded a blob or file!");
+
+            return getDownloadURL(snapshot.ref);
+        })
+        .then(async (downloadURL) => {
+            await updateDoc(doc(db, `posts`, docRef.id), {
+                itemphoto: downloadURL,
             });
+        });
+
+        // await uploadBytes(ref(storage, "users/" + currentUser.uid), profilePic)
+        //     .then(async (snapshot) => {
+        //         console.log("Uploaded a blob or file!");
+
+        //         return getDownloadURL(snapshot.ref);
+        //     })
+        //     .then(async (downloadURL) => {
+        //         await addDoc(collection(db, `posts`), {
+        //             itemphoto: downloadURL,
+        //             itemname: itemname,
+        //             desc: desc,
+        //             category: category,
+        //             expirydate: expirydate,
+        //             owner: currentUser.uid,
+        //         });
+        //     });
+
+        navigate("/posts");
     }
 
     return (
@@ -129,9 +156,7 @@ function AddPost() {
                             value={category}
                             required
                         >
-                            <option value="default">
-                                Pick Category
-                            </option>
+                            <option value="default">Pick Category</option>
                             <option value="Bakery">Bakery</option>
                             <option value="Dairy, Chilled & Eggs">
                                 Dairy, Chilled & Eggs
