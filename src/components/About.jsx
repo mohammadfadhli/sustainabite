@@ -19,7 +19,7 @@ const About = () => {
             <div className="carousel-item active w-100 vh-100">
               <img src={food_bg} className="d-block w-100 vh-100" alt="..." />
               <div class="carousel-caption d-none d-md-block bg-light text-dark">
-                <h5>Sustainabite</h5>
+                <h5>sustainabite</h5>
                 <p>Give bites back to society</p>
               </div>
             </div>
