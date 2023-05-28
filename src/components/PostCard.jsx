@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth";
-import { doc, updateDoc } from "@firebase/firestore";
+import { collection, deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import db from "../firebase";
 
 function PostCard(props) {
@@ -11,11 +11,18 @@ function PostCard(props) {
         await updateDoc(doc(db, `posts`, props.id), {
             collectionrequestedby: currentUser.uid,
         });
+        window.location.reload()
+    }
+
+    async function confirmCollected(){
+        await deleteDoc(doc(db, "posts", props.id))
+        window.location.reload()
     }
 
     function CheckIfOwner() {
         if (currentUser) {
             if (currentUser.uid != props.owner) {
+                // if not owner
                 if (props.requestedby) {
                     return (
                         <>
@@ -37,6 +44,17 @@ function PostCard(props) {
                                 onClick={sendCollectRequest}
                             >
                                 Collect
+                            </button>
+                        </>
+                    );
+                }
+            } // if owner
+            else {
+                if (props.requestedby) {
+                    return (
+                        <>
+                            <button type="button" class="btn btn-primary" onClick={confirmCollected}>
+                                Item Collected
                             </button>
                         </>
                     );
