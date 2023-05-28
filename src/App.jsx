@@ -43,8 +43,8 @@ const router = createBrowserRouter([
           element: <Home></Home>,
       },
       {
-          path: "*",
-          element: <Posts></Posts> // show 404 error page if path doesn't exist
+          path: "posts",
+          element: <Posts></Posts>
       },
   ],
     // children: [

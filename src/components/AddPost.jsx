@@ -71,23 +71,6 @@ function AddPost() {
             });
         });
 
-        // await uploadBytes(ref(storage, "users/" + currentUser.uid), profilePic)
-        //     .then(async (snapshot) => {
-        //         console.log("Uploaded a blob or file!");
-
-        //         return getDownloadURL(snapshot.ref);
-        //     })
-        //     .then(async (downloadURL) => {
-        //         await addDoc(collection(db, `posts`), {
-        //             itemphoto: downloadURL,
-        //             itemname: itemname,
-        //             desc: desc,
-        //             category: category,
-        //             expirydate: expirydate,
-        //             owner: currentUser.uid,
-        //         });
-        //     });
-
         navigate("/posts");
     }
 

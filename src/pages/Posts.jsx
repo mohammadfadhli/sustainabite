@@ -35,6 +35,8 @@ function Posts() {
                 expirydate={post.data().expirydate}
                 category={post.data().category}
                 id={post.id}
+                owner={post.data().owner}
+                requestedby={post.data().collectionrequestedby}
             ></PostCard>
         </Fragment>
     ));
