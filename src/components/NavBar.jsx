@@ -35,7 +35,6 @@ function IsLoggedIn(props) {
                 className="offcanvas offcanvas-start text-bg-light"
                 tabIndex="-1"
                 id="offcanvasMenu"
-                aria-labelledby="name_user_logged_in"
             >
                 <div className="offcanvas-header">
                     <h6
@@ -43,7 +42,7 @@ function IsLoggedIn(props) {
                         id="name_user_logged_in"
                         style={{ color: "black" }}
                     >
-                        {props.displayname}
+                        Welcome, {props.displayname}!
                     </h6>
                     <button
                         type="button"
