@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function IsLoggedIn(props) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-*">
+            <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
                     <button
                         className="btn btn-primary-outline menu"
@@ -53,11 +53,11 @@ function IsLoggedIn(props) {
                     ></button>
                 </div>
                 <div className="offcanvas-body">
-                    <Link to={"/"}>
+                    <Link to={"/"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2">Home</div>
                     </Link>
-                    <Link to={"addpost"}>
-                        <div className="ps-2">Add Post</div>
+                    <Link to={"addpost"} style={{textDecoration: "none", color: "black"}}>
+                        <div className="ps-2 pt-2">Posts</div>
                     </Link>
                 </div>
             </div>
