@@ -1,16 +1,24 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../auth";
-import { collection, deleteDoc, doc, updateDoc } from "@firebase/firestore";
-import db from "../firebase";
+import { useEffect } from "react";
 
 function Filter({setActiveCategory, activeCategory, setFiltered, posts}) {
+
+    useEffect(() => {
+        if(activeCategory == "default")
+        {
+            setFiltered(posts)
+            return
+        }
+
+        const filtered = posts.filter((post) => post.data().category.includes(activeCategory))
+        setFiltered(filtered)
+    }, [activeCategory])
+
     return (
         <div className="filter-container">
-            <button onClick={() => setActiveCategory(0)}>All</button>
-            <button>Bakery</button>
-            <button>Fruits & Vegetables</button>
-            <button>Frozen</button>
+            <button onClick={() => setActiveCategory("default")}>All</button>
+            <button onClick={() => setActiveCategory("Bakery")}>Bakery</button>
+            <button onClick={() => setActiveCategory("Fruits & Vegetables")}>Fruits & Vegetables</button>
+            <button onClick={() => setActiveCategory("Frozen")}>Frozen</button>
         </div>
     )
 }

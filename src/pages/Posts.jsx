@@ -10,7 +10,7 @@ import Filter from "../components/Filter";
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("default");
 
   useEffect(() => {
     async function fetchData() {
@@ -33,9 +33,8 @@ function Posts() {
 
   console.log(posts);
 
-  const postCards = posts.map((post) => (
-    <>
-      <Filter posts={posts} setFiltered={setFiltered}></Filter>
+  const postCards = filtered.map((post) => (
+    <Fragment key={post.id}>
       <PostCard
         itemphoto={post.data().itemphoto}
         itemname={post.data().itemname}
@@ -46,12 +45,13 @@ function Posts() {
         owner={post.data().owner}
         requestedby={post.data().collectionrequestedby}
       ></PostCard>
-    </>
+    </Fragment>
   ));
 
   return (
     <>
       <div class="container mt-5">
+        <Filter posts={posts} setFiltered={setFiltered} setActiveCategory={setActiveCategory} activeCategory={activeCategory}></Filter>
         <div class="row posts-list">{postCards}</div>
       </div>
 
