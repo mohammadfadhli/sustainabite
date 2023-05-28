@@ -40,8 +40,8 @@ function SignUp() {
             console.log("alerted group!" + response);
           })
           .catch(function (error) {
-            console.log(error)
-          })
+            console.log(error);
+          });
       });
       await updateUserName({ displayName: displayName });
       navigate("/");
@@ -81,61 +81,70 @@ function SignUp() {
   }
 
   return (
-    <div class="container">
-      <form onSubmit={signUp}>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
+    <div className="h-100 d-flex justify-content-center align-items-center">
+      <div class="container p-5 m-5">
+        <div className="row">
+          <div className="col-3"></div>
+          <div className="col-6 bg-light p-5">
+            <form onSubmit={signUp}>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <div id="emailHelp" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Display Name
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="displayname"
+                  onChange={(e) => {
+                    setDisplayName(e.target.value);
+                  }}
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <p>
+                  Already have an account?{" "}
+                  <Link to={"/login"}>Log In Here</Link>
+                </p>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Sign Up
+              </button>
+            </form>
+            <ShowAlert></ShowAlert>
           </div>
+          <div className="col-3"></div>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Display Name
-          </label>
-          <input
-            type="text"
-            class="form-control"
-            id="displayname"
-            onChange={(e) => {
-              setDisplayName(e.target.value);
-            }}
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <p>
-            Already have an account? <Link to={"/login"}>Log In Here</Link>
-          </p>
-        </div>
-        <button type="submit" class="btn btn-primary">
-          Sign Up
-        </button>
-      </form>
-      <ShowAlert></ShowAlert>
+      </div>
     </div>
   );
 }
