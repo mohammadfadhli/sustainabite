@@ -53,7 +53,12 @@ function IsLoggedIn(props) {
                     ></button>
                 </div>
                 <div className="offcanvas-body">
-                    <div className="ps-2">Home</div>
+                    <Link to={"home"}>
+                        <div className="ps-2">Home</div>
+                    </Link>
+                    <Link to={"addpost"}>
+                        <div className="ps-2">Add Post</div>
+                    </Link>
                 </div>
             </div>
             <Outlet></Outlet>
@@ -101,7 +106,7 @@ function IsLoggedOut() {
                         id="name_user_logged_in"
                         style={{ color: "black" }}
                     >
-                        name here
+                        {/* name here */}
                     </h6>
                     <button
                         type="button"
@@ -111,7 +116,9 @@ function IsLoggedOut() {
                     ></button>
                 </div>
                 <div className="offcanvas-body">
-                    <div className="ps-2">Home</div>
+                    <Link to={"home"}>
+                        <div className="ps-2">Home</div>
+                    </Link>
                 </div>
             </div>
             <Outlet></Outlet>
