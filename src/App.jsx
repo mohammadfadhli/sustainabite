@@ -4,20 +4,21 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import SignUp from "./components/Signup";
+import Home from "./pages/Home";
 import AddPost from "./components/AddPost";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <NavBar></NavBar>,
-    children:[
+    children: [
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>
+        element: <SignUp></SignUp>,
       },
       {
         path: "/addpost",
@@ -25,16 +26,16 @@ const router = createBrowserRouter([
       },
     ]
   },
-])
+]);
 
 function App() {
-    return (
-        <>
-            <AuthProvider>
-                <RouterProvider router={router}></RouterProvider>
-            </AuthProvider>
-        </>
-    );
+  return (
+    <>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
+    </>
+  );
 }
 
 export default App;
