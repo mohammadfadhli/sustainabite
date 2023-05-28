@@ -31,7 +31,7 @@ function SignUp() {
         // const axios = require("axios");
         axios
           .post(
-            "https://api.telegram.org/bot6275114275:AAF_kcJECWGk0NXGKDvS-XM8OK7coUyrTag/sendMessage?chat_id=-976439463&text=" +
+            "https://api.telegram.org/bot" + import.meta.env.VITE_TELEGRAM_BOT_ID + "/sendMessage?chat_id=" + import.meta.env.VITE_TELEGRAM_CHAT_ID + "&text=" +
               displayName +
               " just joined! :)",
             {}
