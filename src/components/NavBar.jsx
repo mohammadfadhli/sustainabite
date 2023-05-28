@@ -4,47 +4,48 @@ import { Outlet } from "react-router";
 const NavBar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-*">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg bg-*">
+        <div className="container-fluid">
           <button
-            class="btn btn-primary-outline menu"
+            className="btn btn-primary-outline menu"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample"
           >
-            <i class="fa fa-bars" style={{color: "white"}}></i>
+            {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
+            <span class="navbar-toggler-icon"></span>
           </button>
 
-          <button type="button" id="logout_btn" class="btn bai">
+          <button type="button" id="logout_btn" className="btn bai">
             bai bai
           </button>
         </div>
       </nav>
 
       <div
-        class="offcanvas offcanvas-start text-bg-dark"
-        tabindex="-1"
+        className="offcanvas offcanvas-start text-bg-light"
+        tabIndex="-1"
         id="offcanvasExample"
         aria-labelledby="name_user_logged_in"
       >
-        <div class="offcanvas-header">
+        <div className="offcanvas-header">
           <h6
-            class="offcanvas-title"
+            className="offcanvas-title"
             id="name_user_logged_in"
-            style={{color: "#2d5db2"}}
+            style={{color: "black"}}
           >
             name here
           </h6>
           <button
             type="button"
-            class="btn-close btn-close-white"
+            className="btn-close btn-close-black"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">
-          <div class="ps-2">Home</div>
+        <div className="offcanvas-body">
+          <div className="ps-2">Home</div>
         </div>
       </div>
       <Outlet></Outlet>
