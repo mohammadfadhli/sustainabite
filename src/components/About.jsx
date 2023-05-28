@@ -7,26 +7,26 @@ const About = () => {
   return (
     <>
       <div
-        className="container-fluid vh-70 d-inline block"
+        className="container-fluid vh-100 d-inline block"
         style={{ margin: 0, padding: 0 }}
       >
         <div
           id="introCarousel"
-          className="carousel slide carousel-fade vh-70 w-100"
+          className="carousel slide carousel-fade h-100 w-100"
           data-bs-ride="carousel"
         >
-          <div className="carousel-inner vh-70 w-100">
-            <div className="carousel-item active w-100 vh-70">
+          <div className="carousel-inner vh-100 w-100">
+            <div className="carousel-item active w-100 vh-100">
               <img src={food_bg} className="d-block w-100 vh-100" alt="..." />
               <div class="carousel-caption d-none d-md-block bg-light text-dark">
                 <h5>Sustainabite</h5>
                 <p>Give bites back to society</p>
               </div>
             </div>
-            <div className="carousel-item w-100 vh-70">
+            <div className="carousel-item w-100 vh-100">
               <img
                 src={community_bg}
-                className="d-block w-100 vh-70"
+                className="d-block w-100 vh-100"
                 alt="..."
               />
               <div class="carousel-caption d-none d-md-block bg-light text-dark">
@@ -34,10 +34,10 @@ const About = () => {
                 <p>Bringing back our Kampung spirit</p>
               </div>
             </div>
-            <div className="carousel-item w-100 vh-70">
+            <div className="carousel-item w-100 vh-100">
               <img
                 src={eat_tgt_bg}
-                className="d-block w-100 vh-70"
+                className="d-block w-100 vh-100"
                 alt="..."
               />
               <div class="carousel-caption d-none d-md-block bg-light text-dark">
