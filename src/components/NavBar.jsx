@@ -53,7 +53,7 @@ function IsLoggedIn(props) {
                     ></button>
                 </div>
                 <div className="offcanvas-body">
-                    <Link to={"home"}>
+                    <Link to={"/"}>
                         <div className="ps-2">Home</div>
                     </Link>
                     <Link to={"addpost"}>
@@ -116,7 +116,7 @@ function IsLoggedOut() {
                     ></button>
                 </div>
                 <div className="offcanvas-body">
-                    <Link to={"home"}>
+                    <Link to={"/"}>
                         <div className="ps-2">Home</div>
                     </Link>
                 </div>
