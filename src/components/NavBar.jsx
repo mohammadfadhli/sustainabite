@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router";
 
 const NavBar = () => {
   return (
@@ -12,7 +13,7 @@ const NavBar = () => {
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample"
           >
-            <i class="fa fa-bars" style="color: white;"></i>
+            <i class="fa fa-bars" style={{color: "white"}}></i>
           </button>
 
           <button type="button" id="logout_btn" class="btn bai">
@@ -31,7 +32,7 @@ const NavBar = () => {
           <h6
             class="offcanvas-title"
             id="name_user_logged_in"
-            style="color: #2d5db2;"
+            style={{color: "#2d5db2"}}
           >
             name here
           </h6>
@@ -46,6 +47,7 @@ const NavBar = () => {
           <div class="ps-2">Home</div>
         </div>
       </div>
+      <Outlet></Outlet>
     </>
   );
 };

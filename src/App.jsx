@@ -7,7 +7,6 @@ import NavBar from "./components/navbar";
 const router = createBrowserRouter([
   {
     path: "/",
-    index: true,
     element: <NavBar></NavBar>,
     children:[
       {
