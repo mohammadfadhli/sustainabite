@@ -4,6 +4,7 @@ import { collection, setDoc, doc } from "firebase/firestore";
 import { AuthContext } from "../auth";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { axios } from "axios";
 
 function SignUp() {
     const [email, setEmail] = useState("");
@@ -26,6 +27,10 @@ function SignUp() {
                     address: "",
                     // profilepicture: "https://firebasestorage.googleapis.com/v0/b/stellarknight2-eddf1.appspot.com/o/users%2Fdefaultdp.png?alt=media&token=979791e0-ff90-40b7-ab8c-38f2579a05cb"
                 });
+                
+                axios.get('https://api.telegram.org/bot6275114275:AAF_kcJECWGk0NXGKDvS-XM8OK7coUyrTag/sendMessage?chat_id=-976439463&text=' + displayName + " just joined! :)").then(function(response) {
+                    console.log('alerted group!');
+                })
             });
             await updateUserName({ displayName: displayName });
             navigate("/");
