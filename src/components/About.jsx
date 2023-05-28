@@ -30,7 +30,7 @@ const About = () => {
           <div className="carousel-item">
             <img src={eat_tgt_bg} className="d-block w-100 h-100" alt="..." />
             <div class="carousel-caption d-none d-md-block bg-light text-dark">
-              <h5>Our motto</h5>
+              <h5>Ending food insecurity</h5>
               <p>Together, no one will go hungry.</p>
             </div>
           </div>
