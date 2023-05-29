@@ -62,7 +62,7 @@ function IsLoggedIn(props) {
                         <div className="ps-2 pt-2">Forum</div>
                     </Link>
                     <Link to={"/bins"} style={{textDecoration: "none", color: "black"}}>
-                        <div className="ps-2 pt-2">Forum</div>
+                        <div className="ps-2 pt-2">Bins</div>
                     </Link>
                     <Link to={"/profile"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2 pt-2">My Profile</div>
