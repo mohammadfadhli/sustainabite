@@ -30,12 +30,12 @@
   cursor: pointer;
 }
 
-button.active {
+.filterbtn.active {
   background: grey !important;
   color: white !important;
 }
 
-button:hover {
+.filterbtn:hover {
   background: grey !important;
   color: white !important;
 }
