@@ -6,72 +6,54 @@ import eat_tgt_bg from "../assets/eat_tgt.jpg";
 const About = () => {
   return (
     <>
-      <div
-        className="container-fluid vh-100 d-inline block"
-        style={{ margin: 0, padding: 0,}}
-      >
-        <div
-          id="introCarousel"
-          className="carousel slide carousel-fade h-100 w-100"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner vh-100 w-100">
-            <div className="carousel-item active w-100 vh-100">
-              <img src={food_bg} className="d-block w-100 vh-100" alt="..." />
-              <div class="carousel-caption d-none d-md-block bg-light text-dark">
-                <h5>sustainabite</h5>
-                <p>Give bites back to society</p>
-              </div>
+
+    <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item text-center bg-cover vh-100 active slide-1">
+                <div class="container h-100 d-flex align-items-center justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h6 class="text-white">WELCOME TO SUSTAINABITE</h6>
+                            <h1 class="display-1 my-3 fw-bold text-white">Give bites back to society</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="carousel-item w-100 vh-100">
-              <img
-                src={community_bg}
-                className="d-block w-100 vh-100"
-                alt="..."
-              />
-              <div class="carousel-caption d-none d-md-block bg-light text-dark">
-                <h5>Togetherness</h5>
-                <p>Bringing back our Kampung spirit</p>
-              </div>
+
+            <div class="carousel-item text-center bg-cover vh-100 slide-2">
+                <div class="container h-100 d-flex align-items-center justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h6 class="text-white">TOGETHERNESS</h6>
+                            <h1 class="display-1 my-3 fw-bold text-white">Bringing back our Kampung spirit</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="carousel-item w-100 vh-100">
-              <img
-                src={eat_tgt_bg}
-                className="d-block w-100 vh-100"
-                alt="..."
-              />
-              <div class="carousel-caption d-none d-md-block bg-light text-dark">
-                <h5>Ending food insecurity</h5>
-                <p>Together, no one will go hungry</p>
-              </div>
+
+            <div class="carousel-item text-center bg-cover vh-100 slide-3">
+                <div class="container h-100 d-flex align-items-center justify-content-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h6 class="text-white">ENDING FOOD INSECURITY</h6>
+                            <h1 class="display-1 my-3 fw-bold text-white">Together, no one will go hungry</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#introCarousel"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#introCarousel"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+
+
         </div>
-      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
     </>
   );
 };
