@@ -102,7 +102,7 @@ function Bins() {
         ))}
       </MapContainer>
       <div className="container mt-5 mb-5">
-        <h4 className="text-center">Food Bins</h4>
+        <h4 className="text-center">Want to donate to a food bank instead? Drop off your excess food in any of the bins below!</h4>
         <div className="row g-3 mt-3">{binCards}</div>
       </div>
     </>

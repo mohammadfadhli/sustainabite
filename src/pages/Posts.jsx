@@ -72,7 +72,7 @@ function Posts() {
     return (
         <>
             <div className="container mt-5 mb-5">
-                <h4 class="text-center mb-4">Posts</h4>
+                <h4 class="text-center mb-4">Share excess food with your neighbours!</h4>
                 <Filter
                     posts={posts}
                     setFiltered={setFiltered}
