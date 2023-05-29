@@ -20,16 +20,13 @@ function Posts() {
                 const tempArr = [];
                 const querySnapshot = await getDocs(collection(db, "posts"));
                 querySnapshot.forEach((doc) => {
-                    // doc.data() is never undefined for query doc snapshots
+
                     tempArr.push(doc);
                 });
 
                 setPosts(tempArr);
                 setFiltered(tempArr);
-                // console.log(tempArr);
-                // tempArr.forEach(element => {
-                //     console.log(element.data())
-                // });
+
             } catch {}
         }
 
@@ -80,7 +77,9 @@ function Posts() {
                     setActiveCategory={setActiveCategory}
                     activeCategory={activeCategory}
                 ></Filter>
-                <div className="row posts-list mt-3">{postCards}</div>
+                <div>
+                    <div className="row mt-3 g-3">{postCards}</div>
+                </div>
             </div>
             <IsLoggedIn></IsLoggedIn>
         </>
