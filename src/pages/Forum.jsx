@@ -38,7 +38,7 @@ function Forum() {
     }, [newPost]);
 
     async function addNewPost(e) {
-        e.preventDefault();
+        e.preventDefault()
 
         const docRef = await addDoc(collection(db, "forumposts"), {
             post: newPostData,
@@ -57,6 +57,8 @@ function Forum() {
         {
             setNewPost(true)
         }
+
+        setNewPostData("")
     }
 
     return (
@@ -70,6 +72,7 @@ function Forum() {
                         onChange={(e) => {
                             setNewPostData(e.target.value);
                         }}
+                        value={newPostData}
                         required
                     ></textarea>
                     <div class="d-grid mt-3">

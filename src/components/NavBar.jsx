@@ -58,6 +58,9 @@ function IsLoggedIn(props) {
                     <Link to={"/posts"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2 pt-2">Posts</div>
                     </Link>
+                    <Link to={"/forum"} style={{textDecoration: "none", color: "black"}}>
+                        <div className="ps-2 pt-2">Forum</div>
+                    </Link>
                 </div>
             </div>
             <Outlet></Outlet>
@@ -68,7 +71,7 @@ function IsLoggedIn(props) {
 function IsLoggedOut() {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-*">
+            <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
                     <button
                         className="btn btn-primary-outline menu"
@@ -105,7 +108,7 @@ function IsLoggedOut() {
                         id="name_user_logged_in"
                         style={{ color: "black" }}
                     >
-                        {/* name here */}
+                        Sustainabite
                     </h6>
                     <button
                         type="button"
@@ -120,6 +123,9 @@ function IsLoggedOut() {
                     </Link>
                     <Link to={"/posts"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2 pt-2">Posts</div>
+                    </Link>
+                    <Link to={"/forum"} style={{textDecoration: "none", color: "black"}}>
+                        <div className="ps-2 pt-2">Forum</div>
                     </Link>
                 </div>
             </div>

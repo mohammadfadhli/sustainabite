@@ -14,6 +14,8 @@ function SignUp() {
   const [displayName, setDisplayName] = useState("");
   const { createUser, updateUserName } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("")
   const navigate = useNavigate();
 
   async function signUp(e) {
@@ -26,7 +28,8 @@ function SignUp() {
           uid: user.uid,
           bio: "",
           allergy: "",
-          address: "",
+          address: address,
+          postalCode: postalCode
           // profilepicture: "https://firebasestorage.googleapis.com/v0/b/stellarknight2-eddf1.appspot.com/o/users%2Fdefaultdp.png?alt=media&token=979791e0-ff90-40b7-ab8c-38f2579a05cb"
         });
 
@@ -145,6 +148,32 @@ function SignUp() {
                   id="exampleInputPassword1"
                   onChange={(e) => {
                     setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="address"
+                  onChange={(e) => {
+                    setAddress(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label">
+                  Postal Code
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="postalcode"
+                  onChange={(e) => {
+                    setPostalCode(e.target.value);
                   }}
                 />
               </div>

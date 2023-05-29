@@ -16,11 +16,12 @@ import {
 } from "firebase/firestore";
 import db from "../firebase";
 import { AuthContext } from "../auth";
+import "../styles/MediaTemplate.css";
 
 function MediaTemplate(props) {
     const [comment, setComment] = useState("");
     const { currentUser } = useContext(AuthContext);
-    const [checked, setChecked] = useState()
+    const [checked, setChecked] = useState();
 
     async function addComment(e) {
         e.preventDefault();
@@ -109,7 +110,6 @@ function MediaTemplate(props) {
         );
     }
 
-    // Increase likes counter based on checkbox
     async function checkLike(like) {
         if (like.target.checked) {
             const docRef = await updateDoc(
@@ -134,36 +134,396 @@ function MediaTemplate(props) {
         }
     }
 
-    // function LikeCheckbox(props) {
+    function LikeCheckbox(props) {
+        if (props.likes.includes(currentUser.uid)) {
+            // setChecked(true)
 
-    //     if(props.likes.includes(currentUser.uid))
-    //     {
-    //         setChecked(true)
-    //     }
-    //     else
-    //     {
-    //         setChecked(false)
-    //     }
+            return (
+                <>
+                    <input
+                        class="form-check-input checkbox"
+                        type="checkbox"
+                        id={props.id}
+                        onChange={(e) => checkLike(e)}
+                        checked
+                    />
+                    <label for={props.id} class="px-2">
+                        <svg
+                            id="heart-svg"
+                            viewBox="467 392 58 57"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g
+                                id="Group"
+                                fill="none"
+                                fill-rule="evenodd"
+                                transform="translate(467 392)"
+                            >
+                                <path
+                                    d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z"
+                                    id="heart"
+                                    fill="#AAB8C2"
+                                />
+                                <circle
+                                    id="main-circ"
+                                    fill="#E2264D"
+                                    opacity="0"
+                                    cx="29.5"
+                                    cy="29.5"
+                                    r="1.5"
+                                />
 
-    //     return (
-    //         <>
-    //             <div class="px-3">
-    //                 <input
-    //                     class="form-check-input"
-    //                     type="checkbox"
-    //                     id={props.id}
-    //                     onChange={(e) => checkLike(e)}
-    //                     checked={checked}
-    //                 />
-    //                 <h6>{props.likes.length} people likes this.</h6>
-    //             </div>
-    //         </>
-    //     );
-    // }
+                                <g
+                                    id="grp7"
+                                    opacity="0"
+                                    transform="translate(7 6)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#9CD8C3"
+                                        cx="2"
+                                        cy="6"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#8CE8C3"
+                                        cx="5"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp6"
+                                    opacity="0"
+                                    transform="translate(0 28)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#CC8EF5"
+                                        cx="2"
+                                        cy="7"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#91D2FA"
+                                        cx="3"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp3"
+                                    opacity="0"
+                                    transform="translate(52 28)"
+                                >
+                                    <circle
+                                        id="oval2"
+                                        fill="#9CD8C3"
+                                        cx="2"
+                                        cy="7"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval1"
+                                        fill="#8CE8C3"
+                                        cx="4"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp2"
+                                    opacity="0"
+                                    transform="translate(44 6)"
+                                >
+                                    <circle
+                                        id="oval2"
+                                        fill="#CC8EF5"
+                                        cx="5"
+                                        cy="6"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval1"
+                                        fill="#CC8EF5"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp5"
+                                    opacity="0"
+                                    transform="translate(14 50)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#91D2FA"
+                                        cx="6"
+                                        cy="5"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#91D2FA"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp4"
+                                    opacity="0"
+                                    transform="translate(35 50)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#F48EA7"
+                                        cx="6"
+                                        cy="5"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#F48EA7"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp1"
+                                    opacity="0"
+                                    transform="translate(24)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#9FC7FA"
+                                        cx="2.5"
+                                        cy="3"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#9FC7FA"
+                                        cx="7.5"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+                            </g>
+                        </svg>
+                    </label>
+                    <h6 class="px-3 mt-2">
+                        {props.likes.length} person likes this.
+                    </h6>
+                </>
+            );
+        } else {
+            // setChecked(false)
+
+            return (
+                <>
+                    <input
+                        class="form-check-input checkbox"
+                        type="checkbox"
+                        id={props.id}
+                        onChange={(e) => checkLike(e)}
+                    />
+                    <label for={props.id} class="px-2">
+                        <svg
+                            id="heart-svg"
+                            viewBox="467 392 58 57"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <g
+                                id="Group"
+                                fill="none"
+                                fill-rule="evenodd"
+                                transform="translate(467 392)"
+                            >
+                                <path
+                                    d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z"
+                                    id="heart"
+                                    fill="#AAB8C2"
+                                />
+                                <circle
+                                    id="main-circ"
+                                    fill="#E2264D"
+                                    opacity="0"
+                                    cx="29.5"
+                                    cy="29.5"
+                                    r="1.5"
+                                />
+
+                                <g
+                                    id="grp7"
+                                    opacity="0"
+                                    transform="translate(7 6)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#9CD8C3"
+                                        cx="2"
+                                        cy="6"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#8CE8C3"
+                                        cx="5"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp6"
+                                    opacity="0"
+                                    transform="translate(0 28)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#CC8EF5"
+                                        cx="2"
+                                        cy="7"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#91D2FA"
+                                        cx="3"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp3"
+                                    opacity="0"
+                                    transform="translate(52 28)"
+                                >
+                                    <circle
+                                        id="oval2"
+                                        fill="#9CD8C3"
+                                        cx="2"
+                                        cy="7"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval1"
+                                        fill="#8CE8C3"
+                                        cx="4"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp2"
+                                    opacity="0"
+                                    transform="translate(44 6)"
+                                >
+                                    <circle
+                                        id="oval2"
+                                        fill="#CC8EF5"
+                                        cx="5"
+                                        cy="6"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval1"
+                                        fill="#CC8EF5"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp5"
+                                    opacity="0"
+                                    transform="translate(14 50)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#91D2FA"
+                                        cx="6"
+                                        cy="5"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#91D2FA"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp4"
+                                    opacity="0"
+                                    transform="translate(35 50)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#F48EA7"
+                                        cx="6"
+                                        cy="5"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#F48EA7"
+                                        cx="2"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+
+                                <g
+                                    id="grp1"
+                                    opacity="0"
+                                    transform="translate(24)"
+                                >
+                                    <circle
+                                        id="oval1"
+                                        fill="#9FC7FA"
+                                        cx="2.5"
+                                        cy="3"
+                                        r="2"
+                                    />
+                                    <circle
+                                        id="oval2"
+                                        fill="#9FC7FA"
+                                        cx="7.5"
+                                        cy="2"
+                                        r="2"
+                                    />
+                                </g>
+                            </g>
+                        </svg>
+                    </label>
+                    <h6 class="px-3 mt-2">
+                        {props.likes.length} people likes this.
+                    </h6>
+                </>
+            );
+        }
+    }
 
     const postCards = props.forumPosts.map((post) => (
         <Fragment key={post.id}>
-            <div class="border border-dark pb-3 rounded-3 mb-3">
+            <div class="border border-dark-subtle pb-3 rounded-3 mb-3" id="postsDiv">
                 {/* Top part */}
                 <div className="col mb-3">
                     <div className="card border-0">
@@ -190,29 +550,23 @@ function MediaTemplate(props) {
                 <div class="px-3">
                     <p>{post.data().post}</p>
                 </div>
-                <div class="px-3">
-                    {/* <input
-                        class="form-check-input"
-                        type="checkbox"
+                <div class="">
+                    <LikeCheckbox
                         id={post.id}
-                        onChange={(e) => checkLike(e)}
-                    /> */}
-                    <button type="button" id={post.id} class="btn btn-primary" onClick={checkLike}>Like</button>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
-                    </label>
-                    <h6>{post.data().likes}</h6>
+                        likes={post.data().likes}
+                    ></LikeCheckbox>
                 </div>
-                {/* <LikeCheckbox id={post.id} likes={post.data().likes}></LikeCheckbox> */}
+
                 {/* comments section */}
                 <div class="px-3 border-top">
+                    <h6 class="mt-3">Comments</h6>
                     <GetComments
                         allcomments={post.data().comments}
                     ></GetComments>
                     <form onSubmit={addComment} id={post.id}>
                         <textarea
                             // type="textarea"
-                            class="form-control mb-3"
+                            class="form-control my-3"
                             id="exampleInputEmail1"
                             aria-describedby="emailHelp"
                             placeholder="Write a comment..."
