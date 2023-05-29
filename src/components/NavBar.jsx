@@ -130,9 +130,6 @@ function IsLoggedOut() {
                     <Link to={"/posts"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2 pt-2">Posts</div>
                     </Link>
-                    <Link to={"/forum"} style={{textDecoration: "none", color: "black"}}>
-                        <div className="ps-2 pt-2">Forum</div>
-                    </Link>
                     <Link to={"/bins"} style={{textDecoration: "none", color: "black"}}>
                         <div className="ps-2 pt-2">Bins</div>
                     </Link>
