@@ -9,6 +9,7 @@ import axios from "axios";
 
 function AddPost() {
   const [itemname, setItemName] = useState("");
+  const [itemqty, setItemQty] = useState("");
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("default");
   const [expirydate, setExpiryDate] = useState("");
@@ -22,16 +23,16 @@ function AddPost() {
 
   function addPost(e) {
     e.preventDefault();
-    console.log(itemname, desc, category, expirydate);
+    console.log(itemname, itemqty, desc, category, expirydate);
   }
 
   function ItemPhoto() {
     return (
       <>
-        <div class="text-center">
+        <div className="text-center">
           <img
             src={profilePicUrl}
-            class="img-fluid"
+            className="img-fluid"
             style={{ width: 300 }}
           ></img>
         </div>
@@ -52,6 +53,7 @@ function AddPost() {
 
     const docRef = await addDoc(collection(db, "posts"), {
       itemname: itemname,
+      itemqty: itemqty,
       desc: desc,
       category: category,
       expirydate: expirydate,
@@ -97,6 +99,7 @@ function AddPost() {
           import.meta.env.VITE_TELEGRAM_CHAT_ID +
           "&text=" +
           "Someone just added " +
+          itemqty + "x " +
           itemname +
           "! :)",
         {}
@@ -111,15 +114,15 @@ function AddPost() {
 
   return (
     <>
-      <div class="container mb-3">
+      <div className="container mb-3">
         <form onSubmit={addPost}>
           <ItemPhoto></ItemPhoto>
-          <div class="mb-3">
-            <label for="formFile" class="form-label">
+          <div className="mb-3">
+            <label for="formFile" className="form-label">
               Upload a picture of your item
             </label>
             <input
-              class="form-control"
+              className="form-control"
               type="file"
               id="formFile"
               onChange={(e) => {
@@ -129,28 +132,48 @@ function AddPost() {
               required
             />
           </div>
-          <div class="mb-3">
-            <label for="itemname" class="form-label">
-              Item Name
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="itemname"
-              aria-describedby="itemname"
-              placeholder="What is it?"
-              onChange={(e) => {
-                setItemName(e.target.value);
-              }}
-              required
-            />
+          <div className="mb-3">
+            <div className="row">
+              <div className="col">
+                <label for="itemname" className="form-label">
+                  Item Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="itemname"
+                  aria-describedby="itemname"
+                  placeholder="What is it?"
+                  onChange={(e) => {
+                    setItemName(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+              <div className="col">
+              <label for="itemqty" className="form-label">
+                  Item Quantity
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="itemqty"
+                  aria-describedby="itemqty"
+                  placeholder="Quantity of item?"
+                  onChange={(e) => {
+                    setItemQty(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="desc" class="form-label">
+          <div className="mb-3">
+            <label for="desc" className="form-label">
               Description
             </label>
             <textarea
-              class="form-control"
+              className="form-control"
               id="desc"
               placeholder="Describe your item!"
               onChange={(e) => {
@@ -159,12 +182,12 @@ function AddPost() {
               required
             />
           </div>
-          <div class="mb-3">
-            <label for="category" class="form-label">
+          <div className="mb-3">
+            <label for="category" className="form-label">
               Category
             </label>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               onChange={(e) => {
                 setCategory(e.target.value);
@@ -188,13 +211,13 @@ function AddPost() {
               </option>
             </select>
           </div>
-          <div class="mb-3">
-            <label for="expirydate" class="form-label">
+          <div className="mb-3">
+            <label for="expirydate" className="form-label">
               Expiry Date
             </label>
             <input
               type="date"
-              class="ms-3"
+              className="ms-3"
               id="expirydate"
               onChange={(e) => {
                 setExpiryDate(e.target.value);
@@ -202,7 +225,7 @@ function AddPost() {
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>

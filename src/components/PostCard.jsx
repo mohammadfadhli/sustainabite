@@ -76,7 +76,7 @@ function PostCard(props) {
           style={{ width: "100%", height: "20vw", objectFit: "cover" }}
         />
         <div class="card-body">
-          <h5 class="card-title">{props.itemname}</h5>
+          <h5 class="card-title">{props.itemqty}x {props.itemname}</h5>
           <p class="card-text">{props.desc}</p>
           <p class="card-text">Expiry: {props.expirydate}</p>
           <span class="badge text-bg-primary">{props.category}</span>

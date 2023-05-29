@@ -38,6 +38,7 @@ function Posts() {
       <PostCard
         itemphoto={post.data().itemphoto}
         itemname={post.data().itemname}
+        itemqty={post.data().itemqty}
         desc={post.data().desc}
         expirydate={post.data().expirydate}
         category={post.data().category}
