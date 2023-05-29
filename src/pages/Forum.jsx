@@ -2,16 +2,30 @@ import { useContext, useEffect, useState } from "react";
 import MediaTemplate from "../components/MediaTemplate";
 import { AuthContext } from "../auth";
 import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
-import db from "../firebase";
+import db, { storage } from "../firebase";
+import { getDownloadURL, ref } from "firebase/storage";
 
 function Forum() {
     const { currentUser } = useContext(AuthContext);
     const [forumPosts, setForumPosts] = useState([]);
     const [newPost, setNewPost] = useState(false);
     const [newPostData, setNewPostData] = useState("");
+    const [profilePicUrl, setProfilePicUrl] = useState("")
 
     // get all forum posts when first rendered and when forumPosts state changes
     useEffect(() => {
+
+        const fetchPic = async () => {
+            await getDownloadURL(ref(storage, "users/" + currentUser.uid))
+                .then((url) => {
+                    console.log("downloaded file: " + url);
+                    setProfilePicUrl(url);
+                })
+                .catch((error) => {
+                });
+        };
+
+
         async function fetchData() {
             try {
                 const tempArr = [];
@@ -26,7 +40,7 @@ function Forum() {
                 // );
                 querySnapshot.forEach((doc) => {
                     // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data());
+                    console.log(doc.id, " => ", doc.data().profilePicUrl);
                     tempArr.push(doc);
                 });
 
@@ -35,6 +49,7 @@ function Forum() {
         }
 
         fetchData();
+        fetchPic();
     }, [newPost]);
 
     async function addNewPost(e) {
@@ -46,7 +61,8 @@ function Forum() {
             name: currentUser.displayName,
             posted_at: serverTimestamp(),
             likes: [],
-            comments: []
+            comments: [],
+            profilePicUrl: profilePicUrl
         });
 
         if(newPost)
@@ -81,7 +97,7 @@ function Forum() {
                         </button>
                     </div>
                 </form>
-                <MediaTemplate forumPosts={forumPosts} newPost={newPost} setNewPost={setNewPost}></MediaTemplate>
+                <MediaTemplate forumPosts={forumPosts} newPost={newPost} setNewPost={setNewPost} profilePicUrl={profilePicUrl}></MediaTemplate>
             </div>
         </>
     );

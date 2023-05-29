@@ -35,6 +35,7 @@ function MediaTemplate(props) {
                 comment: comment,
                 commenter: currentUser.displayName,
                 commented_at: commented_at,
+                profilePicUrl: props.profilePicUrl
             }),
         });
 
@@ -57,7 +58,7 @@ function MediaTemplate(props) {
                                 <div class="container my-2">
                                     <img
                                         class="rounded"
-                                        src={pp}
+                                        src={comment.profilePicUrl}
                                         style={{ width: 60 }}
                                     ></img>
                                 </div>
@@ -532,7 +533,7 @@ function MediaTemplate(props) {
                                 <div class="container my-2">
                                     <img
                                         class="rounded"
-                                        src={pp}
+                                        src={post.data().profilePicUrl}
                                         style={{ width: 60 }}
                                     ></img>
                                 </div>
