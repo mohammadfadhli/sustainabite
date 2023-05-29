@@ -3,6 +3,10 @@ import BinCard from "../components/BinCard";
 import { Link } from "react-router-dom";
 // import Filter from "../components/Filter";
 import { AuthContext } from "../auth";
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 function Bins() {
   const [bins, setBins] = useState([]);
@@ -16,36 +20,49 @@ function Bins() {
         const tempArr = [
           {
             address: "heartbeat@bedok",
+            geocode: [1.3271898178327022, 103.93208492205508],
             capacity_filled: 75,
             opening_hours: "10am to 10pm",
           },
 
           {
             address: "NTU (The Hive at B5, Near Lift Lobby)",
+            geocode: [1.3527028918286417, 103.6874579474174],
             capacity_filled: 25,
             opening_hours: "830am to 5pm",
           },
 
           {
             address: "Marina Bay Link Mall, (B2 Besides 7-Eleven)",
+            geocode: [1.2797555480818923, 103.85430690856326],
             capacity_filled: 60,
             opening_hours: "10am to 10pm",
           },
 
           {
             address: "Wisteria Mall, Basement 1 Information Counter",
+            geocode: [1.4184225095556175, 103.841148152743],
             capacity_filled: 43,
             opening_hours: "10am to 10pm",
           },
         ];
 
-        console.log(tempArr)
+        console.log(tempArr);
         setBins(tempArr);
       } catch {}
     }
 
     fetchData();
   }, []);
+
+  const customIcon = new Icon({
+    iconUrl: "https://www.svgrepo.com/show/302636/map-marker.svg",
+    iconSize: [40, 40],
+  });
+
+  //   const multipleMarkers = bins.map((bin) => (
+
+  //   ))
 
   const binCards = bins.map((bin) => (
     <Fragment key={bin.address}>
@@ -59,6 +76,26 @@ function Bins() {
 
   return (
     <>
+      <MapContainer
+        center={[1.3521, 103.8198]}
+        zoom={11}
+        style={{ height: "50vh" }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {bins.map((bin) => (
+          <Marker position={bin.geocode} icon={customIcon}>
+            <Popup>
+              <p><strong>Address:</strong> {bin.address}</p>
+              <p><strong>Capacity filled:</strong> {bin.capacity_filled}%</p>
+              <p><strong>Opening hours:</strong> {bin.opening_hours}</p>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
       <div className="container mt-5 mb-5">
         <div className="row mt-3">{binCards}</div>
       </div>
