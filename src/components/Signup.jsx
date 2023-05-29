@@ -5,6 +5,7 @@ import { AuthContext } from "../auth";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import signup_bg from "../assets/signup.jpg";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -31,7 +32,11 @@ function SignUp() {
         // const axios = require("axios");
         axios
           .post(
-            "https://api.telegram.org/bot" + import.meta.env.VITE_TELEGRAM_BOT_ID + "/sendMessage?chat_id=" + import.meta.env.VITE_TELEGRAM_CHAT_ID + "&text=" +
+            "https://api.telegram.org/bot" +
+              import.meta.env.VITE_TELEGRAM_BOT_ID +
+              "/sendMessage?chat_id=" +
+              import.meta.env.VITE_TELEGRAM_CHAT_ID +
+              "&text=" +
               displayName +
               " just joined! :)",
             {}
@@ -81,71 +86,85 @@ function SignUp() {
   }
 
   return (
-    <div className="h-100 d-flex justify-content-center align-items-center">
-      <div class="container p-5 m-5">
-        <div className="row">
-          <div className="col-3"></div>
-          <div className="col-6 bg-light p-5">
-            <form onSubmit={signUp}>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-                <div id="emailHelp" class="form-text">
-                  We'll never share your email with anyone else.
+    <>
+      <img
+        alt=""
+        style={{
+          backgroundImage: "url(" + signup_bg + ")",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <div
+        className="container justify-content-center align-items-center d-flex"
+        style={{ zIndex: 1, position: "absolute", top: "10%" }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-2"></div>
+            <div className="col-8 col-md-6 bg-light p-5">
+              <form onSubmit={signUp}>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
+                  <div id="emailHelp" class="form-text">
+                    We'll never share your email with anyone else.
+                  </div>
                 </div>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Display Name
-                </label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="displayname"
-                  onChange={(e) => {
-                    setDisplayName(e.target.value);
-                  }}
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </div>
-              <div>
-                <p>
-                  Already have an account?{" "}
-                  <Link to={"/login"}>Log In Here</Link>
-                </p>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">
-                Sign Up
-              </button>
-            </form>
-            <ShowAlert></ShowAlert>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">
+                    Display Name
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="displayname"
+                    onChange={(e) => {
+                      setDisplayName(e.target.value);
+                    }}
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                </div>
+                <div>
+                  <p>
+                    Already have an account?{" "}
+                    <Link to={"/login"}>Log In Here</Link>
+                  </p>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Sign Up
+                </button>
+              </form>
+              <ShowAlert></ShowAlert>
+            </div>
+            <div className="col-2"></div>
           </div>
-          <div className="col-3"></div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -65,7 +65,7 @@ function PostCard(props) {
 
     return (
         <>
-            <div class="card col-4 ms-3" id={props.id} owner={props.owner}>
+            <div class="card col-lg-4 col-sm-6 col-12 ms-3" id={props.id} owner={props.owner}>
                 <img src={props.itemphoto} class="card-img-top" />
                 <div class="card-body">
                     <h5 class="card-title">{props.itemname}</h5>
