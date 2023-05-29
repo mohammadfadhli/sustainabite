@@ -9,6 +9,7 @@ import AddPost from "./components/AddPost";
 import Posts from "./pages/Posts";
 import ProtectedRoutes from "./routes/protectedroutes"
 import AnonymousRoute from "./routes/anonymousroute"
+import Forum from "./pages/Forum";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
                   path: "addpost",
                   element: <AddPost></AddPost>,
               },
+              {
+                path: "forum",
+                element: <Forum></Forum>,
+            },
           ],
       },
       {
