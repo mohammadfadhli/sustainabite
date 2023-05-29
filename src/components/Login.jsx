@@ -80,6 +80,7 @@ function Login() {
         <div className="row justify-content-center d-flex ">
           <div className="col-10 col-md-8 bg-light p-5 border rounded-3">
             <form onSubmit={login}>
+              <h4 class="text-center mb-3">Login</h4>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
                   Email address
@@ -94,9 +95,6 @@ function Login() {
                   }}
                   required
                 />
-                <div id="emailHelp" class="form-text">
-                  We'll never share your email with anyone else.
-                </div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">

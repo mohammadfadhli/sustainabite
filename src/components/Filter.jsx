@@ -1,19 +1,20 @@
 import { useEffect } from "react";
 
-function Filter({setActiveCategory, activeCategory, setFiltered, posts}) {
-
+function Filter({ setActiveCategory, activeCategory, setFiltered, posts }) {
     useEffect(() => {
-        if(activeCategory == "default")
-        {
-            setFiltered(posts)
-            return
+        if (activeCategory == "default") {
+            setFiltered(posts);
+            return;
         }
 
-        const filtered = posts.filter((post) => post.data().category.includes(activeCategory))
-        setFiltered(filtered)
-    }, [activeCategory])
+        const filtered = posts.filter((post) =>
+            post.data().category.includes(activeCategory)
+        );
+        setFiltered(filtered);
+    }, [activeCategory]);
 
     return (
+
         <div className="filter-container">
             <button class={activeCategory === "default" ? "btn active filterbtn" : "btn filterbtn"} onClick={() => setActiveCategory("default")}>All</button>
             <button class={activeCategory === "Bakery" ? "btn active filterbtn" : "btn filterbtn"} onClick={() => setActiveCategory("Bakery")}>Bakery</button>
@@ -24,7 +25,7 @@ function Filter({setActiveCategory, activeCategory, setFiltered, posts}) {
             <button class={activeCategory === "Rice, Noodles & Cooking Ingredients" ? "btn active filterbtn" : "btn filterbtn"} onClick={() => setActiveCategory("Rice, Noodles & Cooking Ingredients")}>Rice, Noodles & Cooking Ingredients</button>
             <button class={activeCategory === "Snacks & Confectionery" ? "btn active filterbtn" : "btn filterbtn"} onClick={() => setActiveCategory("Snacks & Confectionery")}>Snacks & Confectionery</button>
         </div>
-    )
+    );
 }
 
 export default Filter;

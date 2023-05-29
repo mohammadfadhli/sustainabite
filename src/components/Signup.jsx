@@ -119,6 +119,7 @@ function SignUp() {
         <div className="row justify-content-center d-flex">
           <div className="col-10 col-md-8 bg-light p-5 border rounded-3">
             <form onSubmit={signUp}>
+              <h4 class="text-center mb-3">Sign Up</h4>
               <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">
                   Email address

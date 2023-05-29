@@ -515,7 +515,7 @@ function MediaTemplate(props) {
                         </svg>
                     </label>
                     <h6 class="px-3 mt-2">
-                        {props.likes.length} people likes this.
+                        {props.likes.length} person likes this.
                     </h6>
                 </>
             );
