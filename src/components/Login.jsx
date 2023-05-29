@@ -77,8 +77,8 @@ function Login() {
           right: 0,
         }}
       >
-        <div className="row justify-content-center d-flex">
-          <div className="col-10 col-md-8 bg-light p-5">
+        <div className="row justify-content-center d-flex ">
+          <div className="col-10 col-md-8 bg-light p-5 border rounded-3">
             <form onSubmit={login}>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
@@ -92,6 +92,7 @@ function Login() {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
+                  required
                 />
                 <div id="emailHelp" class="form-text">
                   We'll never share your email with anyone else.
@@ -108,6 +109,7 @@ function Login() {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                  required
                 />
               </div>
               <div>

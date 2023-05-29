@@ -11,6 +11,7 @@ import "../styles/Login_Signup.css";
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cfmpassword, setCfmPassword] = useState("")
   const [displayName, setDisplayName] = useState("");
   const { createUser, updateUserName } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
@@ -20,52 +21,62 @@ function SignUp() {
 
   async function signUp(e) {
     e.preventDefault();
-    try {
-      await createUser(email, password).then(async (userCredential) => {
-        const user = userCredential.user;
-        await setDoc(doc(db, "users", user.uid), {
-          displayName: displayName,
-          uid: user.uid,
-          bio: "",
-          allergy: "",
-          address: address,
-          postalCode: postalCode
-          // profilepicture: "https://firebasestorage.googleapis.com/v0/b/stellarknight2-eddf1.appspot.com/o/users%2Fdefaultdp.png?alt=media&token=979791e0-ff90-40b7-ab8c-38f2579a05cb"
-        });
 
-        // const axios = require("axios");
-        axios
-          .post(
-            "https://api.telegram.org/bot" +
-              import.meta.env.VITE_TELEGRAM_BOT_ID +
-              "/sendMessage?chat_id=" +
-              import.meta.env.VITE_TELEGRAM_CHAT_ID +
-              "&text=" +
-              displayName +
-              " just joined! :)",
-            {}
-          )
-          .then(function (response) {
-            console.log("alerted group!" + response);
-          })
-          .catch(function (error) {
-            console.log(error);
+    if(password != cfmpassword)
+    {
+      setErrorMsg("Passwords don't match!")
+    }
+    else
+    {
+      try {
+        await createUser(email, password).then(async (userCredential) => {
+          const user = userCredential.user;
+          await setDoc(doc(db, "users", user.uid), {
+            displayName: displayName,
+            uid: user.uid,
+            bio: "",
+            allergy: "",
+            address: address,
+            postalCode: postalCode
+            // profilepicture: "https://firebasestorage.googleapis.com/v0/b/stellarknight2-eddf1.appspot.com/o/users%2Fdefaultdp.png?alt=media&token=979791e0-ff90-40b7-ab8c-38f2579a05cb"
           });
-      });
-      await updateUserName({ displayName: displayName });
-      navigate("/");
-    } catch (error) {
-      console.log(error.code);
-      if (error.code == "auth/weak-password") {
-        setErrorMsg(
-          "Your password is too weak. Please pick a stronger password."
-        );
-      } else if (error.code == "auth/email-already-in-use") {
-        setErrorMsg("This Email is already in use.");
-      } else {
-        setErrorMsg(error.code);
+  
+          // const axios = require("axios");
+          axios
+            .post(
+              "https://api.telegram.org/bot" +
+                import.meta.env.VITE_TELEGRAM_BOT_ID +
+                "/sendMessage?chat_id=" +
+                import.meta.env.VITE_TELEGRAM_CHAT_ID +
+                "&text=" +
+                displayName +
+                " just joined! :)",
+              {}
+            )
+            .then(function (response) {
+              console.log("alerted group!" + response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        });
+        await updateUserName({ displayName: displayName });
+        navigate("/");
+      } catch (error) {
+        console.log(error.code);
+        if (error.code == "auth/weak-password") {
+          setErrorMsg(
+            "Your password is too weak. Please pick a stronger password."
+          );
+        } else if (error.code == "auth/email-already-in-use") {
+          setErrorMsg("This Email is already in use.");
+        } else {
+          setErrorMsg(error.code);
+        }
       }
     }
+
+    
   }
 
   useEffect(() => {
@@ -106,7 +117,7 @@ function SignUp() {
         style={{ zIndex: 1, position: "absolute", top: "20%", marginLeft: "auto", marginRight: "auto", left: 0, right: 0}}
       >
         <div className="row justify-content-center d-flex">
-          <div className="col-10 col-md-8 bg-light p-5">
+          <div className="col-10 col-md-8 bg-light p-5 border rounded-3">
             <form onSubmit={signUp}>
               <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">
@@ -120,6 +131,7 @@ function SignUp() {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
+                  required
                 />
                 <div id="emailHelp" className="form-text">
                   We'll never share your email with anyone else.
@@ -136,6 +148,7 @@ function SignUp() {
                   onChange={(e) => {
                     setDisplayName(e.target.value);
                   }}
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -149,6 +162,21 @@ function SignUp() {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label for="cfmpassword" className="form-label">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="cfmpassword"
+                  onChange={(e) => {
+                    setCfmPassword(e.target.value);
+                  }}
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -162,6 +190,7 @@ function SignUp() {
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -175,6 +204,7 @@ function SignUp() {
                   onChange={(e) => {
                     setPostalCode(e.target.value);
                   }}
+                  required
                 />
               </div>
               <div>
