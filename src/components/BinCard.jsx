@@ -18,7 +18,7 @@ function BinCard(props) {
   return (
     <>
       <div
-        class="card col-xl-3 col-lg-4 col-md-6 col-12 ms-3"
+        class="card col-xl-3 col-lg-4 col-md-6 col-12 ms-3 mb-2"
         id={props.address}
         style={{ padding: 0 }}
       >
