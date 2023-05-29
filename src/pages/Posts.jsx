@@ -26,6 +26,10 @@ function Posts() {
 
                 setPosts(tempArr);
                 setFiltered(tempArr);
+                // console.log(tempArr);
+                // tempArr.forEach(element => {
+                //     console.log(element.data())
+                // });
             } catch {}
         }
 
