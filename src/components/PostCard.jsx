@@ -98,7 +98,7 @@ function PostCard(props) {
 
     return (
         <>
-            <div class="col-lg-4 col-md-6 col-sm-12 ">
+            <div class="col-lg-4 col-md-6 col-sm-12 " key={props.id}>
             <div
                 // class="card col-xl-3 col-lg-4 col-md-6 col-12 ms-3"4
                 class="card "

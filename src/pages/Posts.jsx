@@ -2,11 +2,12 @@ import { collection, getDocs } from "@firebase/firestore";
 import { Fragment, useContext, useEffect, useState } from "react";
 import db from "../firebase";
 import PostCard from "../components/PostCard";
-import "../styles/Posts.css";
+
 // import AddPost from "../components/AddPost";
 import { Link } from "react-router-dom";
 import Filter from "../components/Filter";
 import { AuthContext } from "../auth";
+import "../styles/Posts.css";
 
 function Posts() {
     const [posts, setPosts] = useState([]);

@@ -30,7 +30,12 @@
   cursor: pointer;
 }
 
-button:active {
-  background: grey;
-  color: white;
+button.active {
+  background: grey !important;
+  color: white !important;
+}
+
+button:hover {
+  background: grey !important;
+  color: white !important;
 }
