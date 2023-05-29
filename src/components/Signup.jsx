@@ -100,7 +100,7 @@ function SignUp() {
 
       <div
         className="container"
-        style={{ zIndex: 1, position: "absolute", top: "20%", margin: "auto"}}  
+        style={{ zIndex: 1, position: "absolute", top: "20%", marginLeft: "auto", marginRight: "auto", left: 0, right: 0}}
       >
         <div className="row justify-content-center d-flex">
           <div className="col-6 bg-light p-5">
