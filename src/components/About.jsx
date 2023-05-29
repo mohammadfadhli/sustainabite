@@ -8,7 +8,7 @@ const About = () => {
     <>
       <div
         className="container-fluid vh-100 d-inline block"
-        style={{ margin: 0, padding: 0 }}
+        style={{ margin: 0, padding: 0,}}
       >
         <div
           id="introCarousel"

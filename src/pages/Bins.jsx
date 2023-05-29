@@ -19,7 +19,7 @@ function Bins() {
       try {
         const tempArr = [
           {
-            address: "heartbeat@bedok",
+            address: "Heartbeat@Bedok",
             geocode: [1.3271898178327022, 103.93208492205508],
             region: "East",
             capacity_filled: 75,
@@ -102,7 +102,8 @@ function Bins() {
         ))}
       </MapContainer>
       <div className="container mt-5 mb-5">
-        <div className="row mt-3">{binCards}</div>
+        <h4 className="text-center">Food Bins</h4>
+        <div className="row g-3 mt-3">{binCards}</div>
       </div>
     </>
   );

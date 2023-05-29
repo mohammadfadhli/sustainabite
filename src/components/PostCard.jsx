@@ -101,7 +101,7 @@ function PostCard(props) {
             <div class="col-lg-4 col-md-6 col-sm-12 mb-2" key={props.id}>
             <div
                 // class="card col-xl-3 col-lg-4 col-md-6 col-12 ms-3"4
-                class="card "
+                class="card h-100"
                 id={props.id}
                 owner={props.owner}
                 style={{ padding: 0 }}

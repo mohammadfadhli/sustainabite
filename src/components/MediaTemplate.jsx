@@ -588,7 +588,7 @@ function MediaTemplate(props) {
 
     return (
         <>
-            <h4 class="mt-5">Forum</h4>
+            <h4 class="mt-5 text-center mb-4">Forum</h4>
             {postCards}
         </>
     );
