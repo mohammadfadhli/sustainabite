@@ -16,7 +16,7 @@ function IsLoggedIn(props) {
                         aria-controls="offcanvasMenu"
                     >
                         {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
                     <Link reloadDocument to={"/"}>
                         <button
@@ -78,7 +78,7 @@ function IsLoggedOut() {
                         aria-controls="offcanvasMenu"
                     >
                         {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
 
                     <Link to={"login"}>

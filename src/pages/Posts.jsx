@@ -50,17 +50,17 @@ function Posts() {
 
   return (
     <>
-      <div class="container mt-5">
+      <div className="container mt-5 mb-5">
         <Filter posts={posts} setFiltered={setFiltered} setActiveCategory={setActiveCategory} activeCategory={activeCategory}></Filter>
-        <div class="row posts-list">{postCards}</div>
+        <div className="row posts-list mt-3">{postCards}</div>
       </div>
 
       <Link to={"/addpost"}>
         <button
           type="button"
-          class="btn btn-primary rounded-circle border circle"
+          className="btn btn-primary rounded-circle border circle"
         >
-          <i class="bi bi-plus-lg"></i>
+          <i className="bi bi-plus-lg"></i>
         </button>{" "}
       </Link>
     </>
