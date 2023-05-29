@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import signup_bg from "../assets/signup.jpg";
+import "../styles/Login_Signup.css";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -77,7 +78,7 @@ function SignUp() {
     if (errorMsg) {
       return (
         <>
-          <div class="alert alert-danger mt-3" role="alert">
+          <div className="alert alert-danger mt-3" role="alert">
             {errorMsg}
           </div>
         </>
@@ -88,7 +89,7 @@ function SignUp() {
   return (
     <>
       <img
-        alt=""
+        className="login-signup-img"
         style={{
           backgroundImage: "url(" + signup_bg + ")",
           backgroundPosition: "center",
@@ -96,71 +97,68 @@ function SignUp() {
           backgroundRepeat: "no-repeat",
         }}
       />
+
       <div
-        className="container justify-content-center align-items-center d-flex"
-        style={{ zIndex: 1, position: "absolute", top: "10%" }}
+        className="container"
+        style={{ zIndex: 1, position: "absolute", top: "20%", margin: "auto"}}  
       >
-        <div className="container">
-          <div className="row">
-            <div className="col-2"></div>
-            <div className="col-8 col-md-6 bg-light p-5">
-              <form onSubmit={signUp}>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                  <div id="emailHelp" class="form-text">
-                    We'll never share your email with anyone else.
-                  </div>
+        <div className="row justify-content-center d-flex">
+          <div className="col-6 bg-light p-5">
+            <form onSubmit={signUp}>
+              <div className="mb-3">
+                <label for="exampleInputEmail1" className="form-label">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <div id="emailHelp" className="form-text">
+                  We'll never share your email with anyone else.
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">
-                    Display Name
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="displayname"
-                    onChange={(e) => {
-                      setDisplayName(e.target.value);
-                    }}
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                  />
-                </div>
-                <div>
-                  <p>
-                    Already have an account?{" "}
-                    <Link to={"/login"}>Log In Here</Link>
-                  </p>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                  Sign Up
-                </button>
-              </form>
-              <ShowAlert></ShowAlert>
-            </div>
-            <div className="col-2"></div>
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label">
+                  Display Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="displayname"
+                  onChange={(e) => {
+                    setDisplayName(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <p>
+                  Already have an account?{" "}
+                  <Link to={"/login"}>Log In Here</Link>
+                </p>
+              </div>
+              <button type="submit" className="btn btn-primary w-100">
+                Sign Up
+              </button>
+            </form>
+            <ShowAlert></ShowAlert>
           </div>
         </div>
       </div>
