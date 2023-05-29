@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import MediaTemplate from "../components/MediaTemplate";
 import { AuthContext } from "../auth";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
 import db from "../firebase";
 
 function Forum() {
@@ -15,9 +15,15 @@ function Forum() {
         async function fetchData() {
             try {
                 const tempArr = [];
+
+                const q = query(collection(db, "forumposts"), orderBy('posted_at', 'desc')); // get posts from db and sort by desc timestamp
+
                 const querySnapshot = await getDocs(
-                    collection(db, "forumposts")
+                    q
                 );
+                // const querySnapshot = await getDocs(
+                //     collection(db, "forumposts")
+                // );
                 querySnapshot.forEach((doc) => {
                     // doc.data() is never undefined for query doc snapshots
                     console.log(doc.id, " => ", doc.data());
@@ -37,7 +43,10 @@ function Forum() {
         const docRef = await addDoc(collection(db, "forumposts"), {
             post: newPostData,
             owner: currentUser.uid,
-            name: currentUser.displayName
+            name: currentUser.displayName,
+            posted_at: serverTimestamp(),
+            likes: [],
+            comments: []
         });
 
         if(newPost)
@@ -61,6 +70,7 @@ function Forum() {
                         onChange={(e) => {
                             setNewPostData(e.target.value);
                         }}
+                        required
                     ></textarea>
                     <div class="d-grid mt-3">
                         <button type="submit" class="btn btn-primary">
@@ -68,7 +78,7 @@ function Forum() {
                         </button>
                     </div>
                 </form>
-                <MediaTemplate forumPosts={forumPosts}></MediaTemplate>
+                <MediaTemplate forumPosts={forumPosts} newPost={newPost} setNewPost={setNewPost}></MediaTemplate>
             </div>
         </>
     );
