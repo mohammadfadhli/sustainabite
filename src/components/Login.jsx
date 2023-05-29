@@ -117,7 +117,7 @@ function Login() {
                 </p>
               </div>
               <button type="submit" class="btn btn-primary">
-                Submit
+                Login
               </button>
             </form>
             <ShowAlert></ShowAlert>
