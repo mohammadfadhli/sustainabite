@@ -21,6 +21,7 @@ function Bins() {
           {
             address: "heartbeat@bedok",
             geocode: [1.3271898178327022, 103.93208492205508],
+            region: "East",
             capacity_filled: 75,
             opening_hours: "10am to 10pm",
           },
@@ -28,6 +29,7 @@ function Bins() {
           {
             address: "NTU (The Hive at B5, Near Lift Lobby)",
             geocode: [1.3527028918286417, 103.6874579474174],
+            region: "West",
             capacity_filled: 25,
             opening_hours: "830am to 5pm",
           },
@@ -35,6 +37,7 @@ function Bins() {
           {
             address: "Marina Bay Link Mall, (B2 Besides 7-Eleven)",
             geocode: [1.2797555480818923, 103.85430690856326],
+            region: "South",
             capacity_filled: 60,
             opening_hours: "10am to 10pm",
           },
@@ -42,6 +45,7 @@ function Bins() {
           {
             address: "Wisteria Mall, Basement 1 Information Counter",
             geocode: [1.4184225095556175, 103.841148152743],
+            region: "North",
             capacity_filled: 43,
             opening_hours: "10am to 10pm",
           },
@@ -70,6 +74,7 @@ function Bins() {
         address={bin.address}
         capacity_filled={bin.capacity_filled}
         opening_hours={bin.opening_hours}
+        region={bin.region}
       ></BinCard>
     </Fragment>
   ));
