@@ -22,10 +22,6 @@ npm install
 ```
 npm run dev
 ```
-## Live Site
-
-
-
 ## Authors
 
 Contributors names and contact info
