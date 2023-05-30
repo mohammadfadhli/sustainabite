@@ -10,6 +10,15 @@ An in-depth paragraph about your project and overview of use.
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![Firebase][Firebase]][Firebase-url]
 
+## Live Site
+
+https://sustainabite-f460e.web.app/
+
+You may register a new account or use the following test account:
+
+* email: test@gmail.com
+* password: test123
+
 ## Installation
 
 1. Clone the repo
