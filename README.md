@@ -18,14 +18,7 @@ An in-depth paragraph about your project and overview of use.
 ```
 git clone https://github.com/mohammadfadhli/sustainabite.git
 ```
-2. Install NPM packages
-```
-npm install
-```
-3. Run the application
-```
-npm run dev
-```
+
 ## Authors
 
 Contributors names and contact info
