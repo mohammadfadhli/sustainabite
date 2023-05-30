@@ -12,26 +12,40 @@ An in-depth paragraph about your project and overview of use.
 
 ## Installation
 
-Clone the repo
+1. Clone the repo
 ```
 git clone https://github.com/mohammadfadhli/sustainabite.git
 ```
-Install NPM Packages
+2. Install NPM Packages
 ```
 npm install
 ```
-Run the app
+3. Run the app
 ```
 npm run dev
 ```
 
 ## Authors
+### Executing program
 
-* Mohammad Fadhli 
-[@Github](https://github.com/mohammadfadhli)
+* How to run the program
+* Step-by-step bullets
+```
+code blocks for commands
+```
 
-* Goh Zhiyi
-[@Github](https://github.com/zzz-zhiyi)
+## Help
+
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
+
+## Authors
+ 
+* [Mohammad Fadhli ](https://github.com/mohammadfadhli)
+
+* [Goh Zhiyi](https://github.com/zzz-zhiyi)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
