@@ -10,7 +10,7 @@ Complementing the sharing system is an integrated online forum where users can e
 
 Recognizing the importance of access to food waste management facilities, "Sustainabite" incorporates a comprehensive map feature that displays nearby food bin locations. Users can easily find the nearest collection points, enabling them to dispose of their organic waste responsibly. This feature not only promotes sustainable habits but also helps individuals understand the full lifecycle of food, fostering a sense of responsibility and mindfulness towards the environment.
 
-## Built With
+## Tech Stack
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
@@ -43,7 +43,6 @@ npm run dev
 ## Authors
  
 * [Mohammad Fadhli ](https://github.com/mohammadfadhli)
-
 * [Goh Zhiyi](https://github.com/zzz-zhiyi)
 
 <!-- MARKDOWN LINKS & IMAGES -->
