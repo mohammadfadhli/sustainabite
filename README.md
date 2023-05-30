@@ -2,7 +2,7 @@
 
 ## Description
 
-"Sustainabite" is a web application designed to tackle the global issue of food waste by fostering local communities and facilitating the sharing of excess food.
+"Sustainabite" is a web application designed to tackle the global issue of food waste by fostering local communities to facilitate the sharing of excess food.
 
 At its core lies a robust sharing system that allows users to post and browse available food items within their neighborhood. Individuals can easily create listings showcasing the type of food, quantity, and pick-up location. This seamless exchange fosters a sense of community while significantly reducing food waste.
 
