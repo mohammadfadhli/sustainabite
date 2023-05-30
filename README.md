@@ -25,6 +25,10 @@ You may register a new account or use the following test account:
 * email: test@gmail.com
 * password: test123
 
+## Video Walkthrough
+
+https://www.youtube.com/watch?v=wqH4cI03tgA
+
 ## Installation
 
 1. Clone the repo
