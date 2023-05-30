@@ -14,6 +14,8 @@ function Bins() {
   useEffect(() => {
     async function fetchData() {
       try {
+
+        //assume parties that accept food donations have API that updates bin locations and statuses
         const tempArr = [
           {
             address: "Heartbeat@Bedok",

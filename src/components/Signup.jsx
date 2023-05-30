@@ -1,3 +1,9 @@
+/**
+ * Signgup.jsx
+ * handles Firebase email-password authentication and sign-up
+ */
+
+
 import { useContext, useEffect, useState } from "react";
 import { db } from "../firebase.jsx";
 import { collection, setDoc, doc } from "firebase/firestore";

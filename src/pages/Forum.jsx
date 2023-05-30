@@ -40,9 +40,7 @@ function Forum() {
         ); // get posts from db and sort by desc timestamp
 
         const querySnapshot = await getDocs(q);
-        // const querySnapshot = await getDocs(
-        //     collection(db, "forumposts")
-        // );
+        
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, " => ", doc.data().profilePicUrl);

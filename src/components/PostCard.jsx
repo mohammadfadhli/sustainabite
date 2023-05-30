@@ -1,3 +1,9 @@
+/**
+ * PostCard.jsx
+ * component for card in Posts page
+ */
+
+
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth";

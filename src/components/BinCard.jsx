@@ -1,3 +1,9 @@
+/**
+ * BinCard.jsx
+ * component that holds the template for the cards in Bin page
+ */
+
+
 function BinCard(props) {
   function GetBadge(props) {
     if (props.region == "North") {
@@ -11,6 +17,10 @@ function BinCard(props) {
     }
   }
 
+  /**
+   * GetProgressBar()
+   * changes colour of progressbar in card based on capacity filled
+   */
   function GetProgressBar(props) {
     if (props.capacity_filled <= 25) {
       return (
@@ -25,6 +35,7 @@ function BinCard(props) {
           {props.capacity_filled}%
         </div>
       );
+
     } else if (props.capacity_filled <= 50) {
       return (
         <div
@@ -38,6 +49,7 @@ function BinCard(props) {
           {props.capacity_filled}%
         </div>
       );
+
     } else if (props.capacity_filled <= 75) {
       return (
         <div
@@ -51,6 +63,7 @@ function BinCard(props) {
           {props.capacity_filled}%
         </div>
       );
+
     } else if (props.capacity_filled <= 100) {
       return (
         <div

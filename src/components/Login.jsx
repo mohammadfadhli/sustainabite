@@ -1,3 +1,9 @@
+/**
+ * Login.jsx
+ * handles Firebase email-password authentication
+ */
+
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../auth";
 import { useNavigate } from "react-router";
@@ -16,10 +22,12 @@ function Login() {
     e.preventDefault();
     try {
       await logIn(email, password);
-      navigate("/");
+      navigate("/"); //if user is not logged in, bring back to index page
+
     } catch (error) {
       if (error.code == "auth/too-many-requests") {
         setErrorMsg("Too many failed login attempts. Please try again later.");
+        
       } else if (
         error.code == "auth/wrong-password" ||
         error.code == "auth/user-not-found"

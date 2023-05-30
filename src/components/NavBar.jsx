@@ -1,3 +1,9 @@
+/**
+ * NavBar.jsx
+ * component for the side navbar
+ */
+
+
 import React, { useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { AuthContext } from "../auth";

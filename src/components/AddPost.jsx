@@ -1,3 +1,9 @@
+/**
+ * AddPost.jsx
+ * component that contains a form to allow individuals to add posts
+ */
+
+
 import { useContext, useEffect, useState } from "react";
 import db, { storage } from "../firebase";
 import { AuthContext } from "../auth";
@@ -14,6 +20,10 @@ import placeholderimage from "../assets/placeholder-image.png";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
+/**
+ * AddPost()
+ * component to add post
+ */
 function AddPost() {
   const [itemname, setItemName] = useState("");
   const [itemqty, setItemQty] = useState("");
@@ -30,11 +40,19 @@ function AddPost() {
   const [postalCode, setPostalCode] = useState("");
   const navigate = useNavigate();
 
+  /**
+   * addPost()
+   * method that ensures there is no default
+   */
   function addPost(e) {
     e.preventDefault();
     console.log(itemname, itemqty, desc, category, expirydate);
   }
 
+  /**
+   * itemPhoto()
+   * method that has a placeholder image, and allows users to add their own image after
+   */
   function ItemPhoto() {
     return (
       <>
@@ -49,6 +67,10 @@ function AddPost() {
     );
   }
 
+  /**
+   * useEffect
+   * fetchData right from effect
+   */
   useEffect(() => {
     async function fetchData() {
       try {
@@ -59,6 +81,7 @@ function AddPost() {
           console.log("Document data:", docSnap.data());
           setAddress(docSnap.data().address);
           setPostalCode(docSnap.data().postalCode);
+
         } else {
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
@@ -105,6 +128,7 @@ function AddPost() {
 
     navigate("/posts");
 
+    // Telegram bot to alert users
     axios
       .post(
         "https://api.telegram.org/bot" +

@@ -1,3 +1,9 @@
+/**
+ * MediaTemplate.jsx
+ * component for Forum page
+ */
+
+
 import { Fragment, useContext, useEffect, useState, memo } from "react";
 import placeholderimage from "../assets/placeholder-image.png";
 import pp from "../assets/pp.png";

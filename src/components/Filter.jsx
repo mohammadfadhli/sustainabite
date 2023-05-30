@@ -1,3 +1,9 @@
+/**
+ * Filter.jsx
+ * filter posts based on category
+ */
+
+
 import { useEffect } from "react";
 
 function Filter({ setActiveCategory, activeCategory, setFiltered, posts }) {

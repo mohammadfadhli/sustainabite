@@ -1,3 +1,9 @@
+/**
+ * About.jsx
+ * component that contains a big carousel describing Sustainabite
+*/
+
+
 import React from "react";
 
 const About = () => {
