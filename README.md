@@ -8,6 +8,7 @@ An in-depth paragraph about your project and overview of use.
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Firebase][Firebase]][Firebase-url]
 
 ## Getting Started
 
@@ -17,12 +18,10 @@ An in-depth paragraph about your project and overview of use.
 ```
 git clone https://github.com/mohammadfadhli/sustainabite.git
 ```
-
 2. Install NPM packages
 ```
 npm install
 ```
-
 3. Run the application
 ```
 npm run dev
@@ -43,3 +42,5 @@ Contributors names and contact info
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[Firebase]: https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white
+[Firebase-url]: https://firebase.google.com/
