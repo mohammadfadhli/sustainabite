@@ -10,18 +10,22 @@ An in-depth paragraph about your project and overview of use.
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![Firebase][Firebase]][Firebase-url]
 
-## Getting Started
+## Installation
 
-### Installation
-
-1. Clone the repo
+Clone the repo
 ```
 git clone https://github.com/mohammadfadhli/sustainabite.git
 ```
+Install NPM Packages
+```
+npm install
+```
+Run the app
+```
+npm run dev
+```
 
 ## Authors
-
-Contributors names and contact info
 
 * Mohammad Fadhli 
 [@Github](https://github.com/mohammadfadhli)
