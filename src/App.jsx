@@ -14,65 +14,65 @@ import Bins from "./pages/Bins";
 import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <NavBar></NavBar>,
+  {
+    path: "/",
+    element: <NavBar></NavBar>,
+    children: [
+      {
+        element: <ProtectedRoutes></ProtectedRoutes>, // pages that require authentication goes here
         children: [
-            {
-                element: <ProtectedRoutes></ProtectedRoutes>, // pages that require authentication goes here
-                children: [
-                    {
-                        path: "addpost",
-                        element: <AddPost></AddPost>,
-                    },
-                    {
-                        path: "forum",
-                        element: <Forum></Forum>,
-                    },
-                    {
-                        path: "profile",
-                        element: <Profile></Profile>,
-                    },
-                ],
-            },
-            {
-                element: <AnonymousRoute></AnonymousRoute>, // pages that require non authentication goes here
-                children: [
-                    {
-                        path: "login",
-                        element: <Login></Login>,
-                    },
-                    {
-                        path: "signup",
-                        element: <SignUp></SignUp>,
-                    },
-                ],
-            },
-            // pages that require neither goes here
-            {
-                index: true,
-                element: <Home></Home>,
-            },
-            {
-                path: "posts",
-                element: <Posts></Posts>,
-            },
-            {
-                path: "bins",
-                element: <Bins></Bins>,
-            },
+          {
+            path: "addpost",
+            element: <AddPost></AddPost>,
+          },
+          {
+            path: "forum",
+            element: <Forum></Forum>,
+          },
+          {
+            path: "profile",
+            element: <Profile></Profile>,
+          },
         ],
-    },
+      },
+      {
+        element: <AnonymousRoute></AnonymousRoute>, // pages that require non authentication goes here
+        children: [
+          {
+            path: "login",
+            element: <Login></Login>,
+          },
+          {
+            path: "signup",
+            element: <SignUp></SignUp>,
+          },
+        ],
+      },
+      // pages that require neither goes here
+      {
+        index: true,
+        element: <Home></Home>,
+      },
+      {
+        path: "posts",
+        element: <Posts></Posts>,
+      },
+      {
+        path: "bins",
+        element: <Bins></Bins>,
+      },
+    ],
+  },
 ]);
 
 function App() {
-    return (
-        <>
-            <AuthProvider>
-                <RouterProvider router={router}></RouterProvider>
-            </AuthProvider>
-        </>
-    );
+  return (
+    <>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
+    </>
+  );
 }
 
 export default App;

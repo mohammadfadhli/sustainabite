@@ -1,7 +1,3 @@
-import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../auth";
-
 function BinCard(props) {
   function GetBadge(props) {
     if (props.region == "North") {
@@ -73,29 +69,25 @@ function BinCard(props) {
 
   return (
     <>
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div
-        class="card h-100"
-        id={props.address}
-        style={{ padding: 0 }}
-      >
-        <div class="card-body">
-          <h5 class="card-title">{props.address}</h5>
-          <GetBadge region={props.region}></GetBadge>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card h-100" id={props.address} style={{ padding: 0 }}>
+          <div class="card-body">
+            <h5 class="card-title">{props.address}</h5>
+            <GetBadge region={props.region}></GetBadge>
 
-          <p class="card-text mb-2"></p>
-          <p class="card-text mb-2">Capacity filled:</p>
-          <div class="progress">
-            <GetProgressBar
-              capacity_filled={props.capacity_filled}
-            ></GetProgressBar>
+            <p class="card-text mb-2"></p>
+            <p class="card-text mb-2">Capacity filled:</p>
+            <div class="progress">
+              <GetProgressBar
+                capacity_filled={props.capacity_filled}
+              ></GetProgressBar>
+            </div>
+            <p class="card-text mb-2">
+              <strong>Opening hours: </strong>
+              {props.opening_hours}
+            </p>
           </div>
-          <p class="card-text mb-2">
-            <strong>Opening hours: </strong>
-            {props.opening_hours}
-          </p>
         </div>
-      </div>
       </div>
     </>
   );

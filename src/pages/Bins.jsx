@@ -1,7 +1,6 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import BinCard from "../components/BinCard";
 import { Link } from "react-router-dom";
-// import Filter from "../components/Filter";
 import { AuthContext } from "../auth";
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -88,15 +87,24 @@ function Bins() {
         {bins.map((bin) => (
           <Marker position={bin.geocode} icon={customIcon}>
             <Popup>
-              <p><strong>Address:</strong> {bin.address}</p>
-              <p><strong>Capacity filled:</strong> {bin.capacity_filled}%</p>
-              <p><strong>Opening hours:</strong> {bin.opening_hours}</p>
+              <p>
+                <strong>Address:</strong> {bin.address}
+              </p>
+              <p>
+                <strong>Capacity filled:</strong> {bin.capacity_filled}%
+              </p>
+              <p>
+                <strong>Opening hours:</strong> {bin.opening_hours}
+              </p>
             </Popup>
           </Marker>
         ))}
       </MapContainer>
       <div className="container mt-5 mb-5">
-        <h4 className="text-center">Want to donate to a food bank instead? Drop off your excess food in any of the bins below!</h4>
+        <h4 className="text-center">
+          Want to donate to a food bank instead? Drop off your excess food in
+          any of the bins below!
+        </h4>
         <div className="row g-3 mt-3">{binCards}</div>
       </div>
     </>

@@ -11,23 +11,20 @@ import "../styles/Login_Signup.css";
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [cfmpassword, setCfmPassword] = useState("")
+  const [cfmpassword, setCfmPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const { createUser, updateUserName } = useContext(AuthContext);
   const [errorMsg, setErrorMsg] = useState("");
   const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("")
+  const [postalCode, setPostalCode] = useState("");
   const navigate = useNavigate();
 
   async function signUp(e) {
     e.preventDefault();
 
-    if(password != cfmpassword)
-    {
-      setErrorMsg("Passwords don't match!")
-    }
-    else
-    {
+    if (password != cfmpassword) {
+      setErrorMsg("Passwords don't match!");
+    } else {
       try {
         await createUser(email, password).then(async (userCredential) => {
           const user = userCredential.user;
@@ -37,10 +34,10 @@ function SignUp() {
             bio: "",
             allergy: "",
             address: address,
-            postalCode: postalCode
+            postalCode: postalCode,
             // profilepicture: "https://firebasestorage.googleapis.com/v0/b/stellarknight2-eddf1.appspot.com/o/users%2Fdefaultdp.png?alt=media&token=979791e0-ff90-40b7-ab8c-38f2579a05cb"
           });
-  
+
           // const axios = require("axios");
           axios
             .post(
@@ -75,8 +72,6 @@ function SignUp() {
         }
       }
     }
-
-    
   }
 
   useEffect(() => {
@@ -114,7 +109,15 @@ function SignUp() {
 
       <div
         className="container"
-        style={{ zIndex: 1, position: "absolute", top: "20%", marginLeft: "auto", marginRight: "auto", left: 0, right: 0}}
+        style={{
+          zIndex: 1,
+          position: "absolute",
+          top: "20%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          left: 0,
+          right: 0,
+        }}
       >
         <div className="row justify-content-center d-flex">
           <div className="col-10 col-md-8 bg-light p-5 border rounded-3">
