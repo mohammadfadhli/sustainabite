@@ -10,8 +10,6 @@ import "leaflet/dist/leaflet.css";
 
 function Bins() {
   const [bins, setBins] = useState([]);
-  // const [filtered, setFiltered] = useState([]);
-  // const [activeCategory, setActiveCategory] = useState("default");
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
@@ -63,10 +61,6 @@ function Bins() {
     iconUrl: "https://www.svgrepo.com/show/302636/map-marker.svg",
     iconSize: [40, 40],
   });
-
-  //   const multipleMarkers = bins.map((bin) => (
-
-  //   ))
 
   const binCards = bins.map((bin) => (
     <Fragment key={bin.address}>

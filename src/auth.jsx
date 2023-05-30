@@ -56,10 +56,9 @@ export function AuthProvider({ children }) {
                     setFriendsList(docSnap.data().friends);
                 }
 
-                // ...
             } else {
                 // User is signed out
-                // ...
+                
                 console.log("Logged Out");
                 setIsLoading(false);
             }

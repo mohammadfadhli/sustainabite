@@ -15,7 +15,7 @@ function IsLoggedIn(props) {
                         data-bs-target="#offcanvasMenu"
                         aria-controls="offcanvasMenu"
                     >
-                        {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
+                        
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Link reloadDocument to={"/"}>
@@ -86,7 +86,7 @@ function IsLoggedOut() {
                         data-bs-target="#offcanvasMenu"
                         aria-controls="offcanvasMenu"
                     >
-                        {/* <i className="fa fa-bars" style={{color: "black"}}></i> */}
+                        
                         <span className="navbar-toggler-icon"></span>
                     </button>
 

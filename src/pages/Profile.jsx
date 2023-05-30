@@ -176,9 +176,6 @@ function Profile() {
                     </button>
                 </form>
             </div>
-            {/* <div class="container mt-3">
-                <SuccessAlert></SuccessAlert>
-            </div> */}
         </>
     );
 }

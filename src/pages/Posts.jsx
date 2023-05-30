@@ -3,7 +3,6 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import db from "../firebase";
 import PostCard from "../components/PostCard";
 
-// import AddPost from "../components/AddPost";
 import { Link } from "react-router-dom";
 import Filter from "../components/Filter";
 import { AuthContext } from "../auth";
