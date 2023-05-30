@@ -26,22 +26,6 @@ npm run dev
 ```
 
 ## Authors
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
  
 * [Mohammad Fadhli ](https://github.com/mohammadfadhli)
 
