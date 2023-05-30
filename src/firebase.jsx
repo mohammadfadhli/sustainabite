@@ -10,10 +10,10 @@ import {getAuth} from "firebase/auth"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAop20dwJTIotX9-1mJuSdAF1AdXHN7Uzo",
-    authDomain: "sustainabite-f460e.firebaseapp.com",
-    projectId: "sustainabite-f460e",
-    storageBucket: "sustainabite-f460e.appspot.com",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_PROJECT_ID + ".firebaseapp.com",
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_PROJECT_ID + ".appspot.com",
     messagingSenderId: "913546872254",
     appId: "1:913546872254:web:e144a5ff87da18795be5ef",
     measurementId: "G-1ZXPJSYQW0",
