@@ -1,5 +1,4 @@
 # Sustainabite
-Simple overview of use/purpose.
 
 ## Description
 
@@ -7,7 +6,7 @@ An in-depth paragraph about your project and overview of use.
 
 ## Getting Started
 
-### Installing
+### Installation
 
 1. Clone the repo
 ```
@@ -18,6 +17,14 @@ git clone https://github.com/mohammadfadhli/sustainabite.git
 ```
 npm install
 ```
+
+3. Run the application
+```
+npm run dev
+```
+## Live Site
+
+
 
 ## Authors
 
